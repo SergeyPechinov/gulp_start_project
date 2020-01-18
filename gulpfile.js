@@ -29,10 +29,6 @@ gulp.task('sass', function () {
 			.pipe(gulp.dest('src/css'))
 });
 
-gulp.task('images', function () {
-	return gulp.src('src/images/**/*').pipe(guld.dest('build/images'));
-});
-
 gulp.task('concatCss', function () {
 	return gulp.src('src/css/**/*')
 			.pipe(concatCss('css/css.css'))
@@ -42,12 +38,10 @@ gulp.task('concatCss', function () {
 gulp.task('watch', function () {
 	gulp.series('pug');
 	gulp.series('sass');
-	gulp.series('images');
 	gulp.series('concatCss');
 
 	gulp.watch('src/pug/**/*.pug', gulp.series('pug'));
 	gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
-	gulp.watch('src/images/**/*', gulp.series('images'));
 	gulp.watch('src/css/**/*', gulp.series('concatCss'));
 });
 
