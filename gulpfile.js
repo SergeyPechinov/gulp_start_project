@@ -36,10 +36,6 @@ gulp.task('concatCss', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.series('pug');
-	gulp.series('sass');
-	gulp.series('concatCss');
-
 	gulp.watch('src/pug/**/*.pug', gulp.series('pug'));
 	gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
 	gulp.watch('src/css/**/*', gulp.series('concatCss'));
